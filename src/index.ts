@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import userRoutes from './routes/userRoutes';
-
-
+import propertyRoutes from './routes/propertyRoutes';
+import apartmentRoutes from './routes/apartmentRoutes';
 
 
 const app = express();
@@ -15,6 +15,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/citadelPro')
   .catch(err => console.error('Could not connect to MongoDB...', err));
 
   app.use('/api/users', userRoutes);
+  app.use('/api/properties', propertyRoutes);
+  app.use('/api/apartments', apartmentRoutes);
+
 
 
 
